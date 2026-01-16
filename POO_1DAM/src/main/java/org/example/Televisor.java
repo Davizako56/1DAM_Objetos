@@ -4,6 +4,8 @@ public class Televisor {
 
     private int canal;
     private int volumen;
+    private static final int def_canal = 1;
+    private static final int def_volumen = 5;
 
     public Televisor(int canal, int volumen) {
 
@@ -12,8 +14,8 @@ public class Televisor {
     }
 
     public Televisor() {
-        canal = 1;
-        volumen = 5;
+        canal = def_canal;
+        volumen = def_volumen;
     }
 
     public int getCanal() {
@@ -45,8 +47,10 @@ public class Televisor {
         if (canal == 99){
             canal = 1;
         }else{
-            canal = canal + 1;
+            canal++;
         }
+
+        System.out.println("Canal: " + canal);
     }
 
     public void bajarCanal() {
@@ -56,7 +60,35 @@ public class Televisor {
         if (canal == 1) {
             canal = 99;
         }else{
-            canal = canal - 1;
+            canal--;
         }
+
+        System.out.println("Canal: " + canal);
+    }
+
+    public void subirVolumen() {
+
+        System.out.println("Subiendo el volumen...");
+
+        if (volumen >= 100) {
+            System.out.println("No se puede subir el volumen");
+        }else{
+            volumen++;
+        }
+
+        System.out.println("Volumen: " + volumen);
+    }
+
+    public void bajarVolumen() {
+
+        System.out.println("Bajando el volumen...");
+
+        if (volumen <= 0) {
+            System.out.println("No se puede bajar el volumen");
+        }else{
+            volumen--;
+        }
+
+        System.out.println("Volumen: " + volumen);
     }
 }
