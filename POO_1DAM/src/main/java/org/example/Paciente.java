@@ -14,12 +14,13 @@ public class Paciente {
     private static final int infrapeso = -1;
     private static final int peso_ideal = 0;
     private static final int sobrepeso = 1;
+    private static final int edad_adulta = 18;
 
     public Paciente(String nombre, int edad, char genero, double peso, int altura) {
         this.nombre = nombre;
         this.edad = edad;
         dni = generarDni();
-        this.genero = genero;
+        setGenero(genero);
         this.peso = peso;
         this.altura = altura;
     }
@@ -58,7 +59,7 @@ public class Paciente {
     }
 
     public void setGenero(char genero) {
-        this.genero = genero;
+        this.genero = validarGenero(genero);
     }
 
     public double getPeso() {
@@ -98,7 +99,9 @@ public class Paciente {
 
     public int calcularIMC() {
 
-        double resultado = peso / Math.pow(altura,2);
+        double resultado = peso / Math.pow( (double) altura/100,2);
+
+        System.out.println(resultado);
 
         if (resultado < 20) {
             return infrapeso;
@@ -107,5 +110,28 @@ public class Paciente {
         }else{
             return peso_ideal;
         }
+    }
+
+    public boolean esMayorDeEdad() {
+
+        if (edad < edad_adulta) {
+            return false;
+        }else{
+            return true;
+        }
+    }
+
+    public char validarGenero(char genero) {
+
+        if (genero == 'H' || genero == 'M') {
+            return genero;
+        }else{
+            return def_genero;
+        }
+    }
+
+    @Override
+    public String toString() {
+        return "[nombre = " + nombre + ", edad = " + edad + ", DNI = " + dni + ", genero = " + genero + ", peso = " + peso + ", altura = " + altura + "]";
     }
 }
