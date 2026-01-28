@@ -1,4 +1,5 @@
 package org.example.Biblioteca;
+import java.util.ArrayList;
 
 public class Estudiante {
 
@@ -9,7 +10,7 @@ public class Estudiante {
     private String curso;
     private int nia;
     private String email;
-    private Libro libro;
+    private ArrayList<Libro> listaLibros;
 
     public Estudiante(String nombre, String curso, String email) {
 
@@ -17,7 +18,7 @@ public class Estudiante {
         this.curso = curso;
         this.email = email;
         setNia();
-        libro = null;
+        listaLibros = new ArrayList<Libro>();
     }
 
     public Estudiante(String nombre) {
@@ -57,12 +58,12 @@ public class Estudiante {
         this.email = email;
     }
 
-    public Libro getLibro() {
-        return libro;
+    public ArrayList<Libro> getListaLibros() {
+        return listaLibros;
     }
 
-    public void setLibro(Libro libro) {
-        this.libro = libro;
+    public void setLibro(ArrayList<Libro> libro) {
+        this.listaLibros = libro;
     }
 
     public static int obtenerTotalEstudiantes() {
@@ -78,9 +79,19 @@ public class Estudiante {
         }
     }
 
+    public void insertarLibro(Libro libro) {
+
+        listaLibros.add(libro);
+    }
+
+    public void borrarLibro(Libro libro) {
+
+        listaLibros.remove(libro);
+    }
+
     @Override
     public String toString() {
-        return "[nombre = " + nombre + ", curso = " + curso + ", NIA = " + nia + ", email = " + email + ", libro = " + libro.getTitulo() + "]";
+        return "[nombre = " + nombre + ", curso = " + curso + ", NIA = " + nia + ", email = " + email + "]";
     }
 
 

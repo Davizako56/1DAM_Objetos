@@ -22,6 +22,7 @@ public class Libro {
         librosDisponibles++;
         estudiantePrestado = null;
         this.editorial = editorial;
+        editorial.insertarLibro(this);
     }
 
     public String getTitulo() {
@@ -76,16 +77,16 @@ public class Libro {
 
         Prestamo prestamo = null;
 
-        if (estaDisponible() && estudiante.getLibro() == null) {
+        if (estaDisponible() && !estudiante.getListaLibros().contains(this)) {
             System.out.println("El libro " + titulo + " ha sido prestado a " + estudiante.getNombre() + " de " + estudiante.getCurso());
             disponible = false;
             librosDisponibles--;
-            estudiante.setLibro(this);
+            estudiante.insertarLibro(this);
             estudiantePrestado = estudiante;
             prestamo = new Prestamo(this, estudiante);
             System.out.println("Prestamo realizado con éxito");
-        }else if (estudiante.getLibro() != null){
-            System.out.println("El estudiante " + estudiante.getNombre() + " ya tiene un libro prestado.");
+        }else if (estudiante.getListaLibros().contains(this)){
+            System.out.println("El estudiante " + estudiante.getNombre() + " ya tiene el libro " + titulo + " prestado");
         }else{
             System.out.println("El libro " + titulo + " ya está prestado.");
         }
@@ -101,6 +102,7 @@ public class Libro {
             System.out.println("El libro " + titulo + " ha sido devuelto con éxito.");
             disponible = true;
             librosDisponibles++;
+            estudiantePrestado.borrarLibro(this);
             estudiantePrestado = null;
         }
     }

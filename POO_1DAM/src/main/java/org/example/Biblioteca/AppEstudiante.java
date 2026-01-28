@@ -30,5 +30,10 @@ public class AppEstudiante {
         System.out.println();
 
         System.out.println("Fecha préstamo: " + p1.getFecha());
+        System.out.println();
+
+        System.out.println(jorge.getListaLibros());
+        System.out.println(libro1.estaDisponible());
+        System.out.println(libro1);
     }
 }
