@@ -35,5 +35,10 @@ public class AppEstudiante {
         System.out.println(jorge.getListaLibros());
         System.out.println(libro1.estaDisponible());
         System.out.println(libro1);
+        System.out.println();
+
+        System.out.println(millenium.getListaLibros());
+
+
     }
 }

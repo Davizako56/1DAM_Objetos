@@ -55,6 +55,6 @@ public class Editorial {
     @Override
     public String toString() {
 
-        return "[nombre = " + nombre + ", país = " + pais + ", libros = " + listaLibros + "]";
+        return "[nombre = " + nombre + ", país = " + pais + "]";
     }
 }
