@@ -1,6 +1,6 @@
 package org.example.Inmobiliaria;
 
-public class AppInmoviliaria {
+public class AppInmobiliaria {
 
     public static void main(String[] args) {
 
