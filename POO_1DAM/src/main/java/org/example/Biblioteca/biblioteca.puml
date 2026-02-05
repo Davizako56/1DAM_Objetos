@@ -1,8 +1,4 @@
-@startuml
 
-class Libro
-
-Editorial "1" --> "*" Libro : contiene >
 
 @startuml
 
@@ -115,5 +111,9 @@ class Editorial {
     + borrarLibro(libro : Libro) : void
     + toString() : String
 }
+
+class Libro
+
+Editorial "1" --> "*" Libro : contiene >
 
 @enduml
