@@ -1,0 +1,147 @@
+# Práctica 1: El Formiguero contra la Rebelion
+
+## ÍNDICE
+
+1. [Intro]
+2. [Estructura de clases]
+  - Diagrama de clases UML
+  - Código de PlantUml
+  - Comtenido de las clases (.java)
+3. [Programa principal ((app)]
+4. [Pruebas]
+5. [Entrega]
+
+### 1. Intro
+> La práctica consiste en una app...
+### 2. Estructura de clases
+
+#### Diagrama de clases UML
+![](media/biblioteca.png)
+
+#### Código de PalantUML
+
+@startuml
+
+class Estudiante {
+    - correo_format : String <<static>>
+    - contador_estudiantes : int <<static>>
+
+    - nombre : String
+    - curso : String
+    - nia : int
+    - email : String
+    - listaLibros : ArrayList<Libro>
+
+    + Estudiante(nombre : String, curso : String, email : String)
+    + Estudiante(nombre : String)
+    + getNombre() : String
+    + setNombre(nombre : String) : void
+    + getCurso() : String
+    + setCurso(curso : String) : void
+    + getNia() : int
+    + setNia() : void
+    + getEmail() : String
+    + setEmail(email : String) : void
+    + getListaLibros() : ArrayList<Libro>
+    + setLibro(libro : ArrayList<Libro>) : void
+    + obtenerTotalEstudiantes() : int <<static>>
+    + validarCorreo(email : String) : boolean <<static>>
+    + insertarLibro(libro : Libro) : void
+    + borrarLibro(libro : Libro) : void
+    + toString() : String
+}
+
+class Libro
+
+Estudiante "1" --> "*" Libro : posee >
+
+class Libro {
+    - cantidadLibros : int <<static>>
+    - librosDisponibles : int <<static>>
+
+    - titulo : String
+    - autor : String
+    - id : String
+    - disponible : boolean
+    - estudiantePrestado : Estudiante
+    - editorial : Editorial
+
+    + Libro(titulo : String, autor : String, editorial : Editorial)
+    + getTitulo() : String
+    + setTitulo(titulo : String) : void
+    + getAutor() : String
+    + setAutor(autor : String) : void
+    + getId() : String
+    + setId() : void
+    + getPrestado() : boolean
+    + setPrestado(prestado : boolean) : void
+    + calcularId() : String
+    + prestar(estudiante : Estudiante) : Prestamo
+    + devolver(estudiante : Estudiante) : void
+    + estaDisponible() : boolean
+    + getTotalLibros() : int <<static>>
+    + getLibrosDisponibles() : int <<static>>
+    + getEstudiantePrestado() : Estudiante
+    + setEstudiantePrestado(estudiantePrestado : Estudiante) : void
+    + toString() : String
+}
+
+class Estudiante
+class Editorial
+class Prestamo
+
+Libro "*" --> "1" Editorial : pertenece a >
+Libro "*" --> "0..1" Estudiante : prestado a >
+Libro "1" --> "0..1" Prestamo : genera >
+
+class Prestamo {
+    - libro : Libro
+    - estudiante : Estudiante
+    - fecha : LocalDateTime
+
+    + Prestamo(libro : Libro, estudiante : Estudiante)
+    + getFecha() : LocalDateTime
+    + setFecha(fecha : LocalDateTime) : void
+    + getLibro() : Libro
+    + setLibro(libro : Libro) : void
+    + getEstudiante() : Estudiante
+    + setEstudiante(estudiante : Estudiante) : void
+}
+
+class Libro
+class Estudiante
+
+Prestamo "1" o--> "1" Libro : incluye >
+Prestamo "1" --> "1" Estudiante : asociado a >
+
+class Editorial {
+    - nombre : String
+    - pais : String
+    - listaLibros : ArrayList<Libro>
+
+    + Editorial()
+    + Editorial(nombre : String, pais : String)
+    + getNombre() : String
+    + setNombre(nombre : String) : void
+    + getPais() : String
+    + setPais(pais : String) : void
+    + getListaLibros() : ArrayList<Libro>
+    + setListaLibros(listaLibros : ArrayList<Libro>) : void
+    + insertarLibro(libro : Libro) : void
+    + borrarLibro(libro : Libro) : void
+    + toString() : String
+}
+
+class Libro
+
+Editorial "1" --> "*" Libro : contiene >
+
+@enduml
+
+#### Contenido de las clases (.java)
+
+### 3. Programa principal (app)
+
+### 4. Pruebas
+
+### 5. Entrega
