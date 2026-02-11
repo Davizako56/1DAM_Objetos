@@ -1,6 +1,9 @@
 package org.example.Carrefour;
+import java.util.ArrayList;
 
 public class AppEmpleados {
+
+    static ArrayList<Persona> listaEmpleados = new ArrayList<>();
 
     public static void main(String[] args) {
 
@@ -28,5 +31,20 @@ public class AppEmpleados {
         carlos.añadirArma("Guantelete del infinito");
         System.out.println();
         carlos.mostrarArmas();
+        System.out.println();
+
+        Persona manuel = new Cajero(1232,"Manuel",2000);
+
+        listaEmpleados.add(manuel);
+        listaEmpleados.add(carlos);
+
+        fichar(manuel);
+        fichar(carlos);
+    }
+
+    public static void fichar(Persona persona) {
+        System.out.println("Fichando...");
+        listaEmpleados.add(persona);
+
     }
 }
