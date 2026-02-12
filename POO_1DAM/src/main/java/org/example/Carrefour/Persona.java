@@ -1,6 +1,6 @@
 package org.example.Carrefour;
 
-public class Persona {
+public abstract class Persona {
 
     private int codigo;
     private String nombre;
@@ -40,6 +40,8 @@ public class Persona {
     public void mostrarInfo() {
         System.out.println("Persona con código " + codigo + " y nombre " + nombre  + " gana " + sueldo + " euros.");
     }
+
+    public abstract void trabajar();
 
     @Override
 

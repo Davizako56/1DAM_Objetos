@@ -56,6 +56,12 @@ public class Seguridad extends Persona{
 
     @Override
 
+    public void trabajar() {
+        System.out.println("Vigilar a sospechosos...");
+    }
+
+    @Override
+
     public void mostrarInfo() {
         super.mostrarInfo();
         System.out.println("Segurata con las armas " + armas + " y empresa " + empresa);

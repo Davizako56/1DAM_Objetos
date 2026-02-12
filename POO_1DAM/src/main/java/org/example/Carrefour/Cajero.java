@@ -23,6 +23,12 @@ public class Cajero extends Persona{
     }
 
     @Override
+
+    public void trabajar() {
+        System.out.println("Cobrando productos...");
+    }
+
+    @Override
     public void mostrarInfo() {
         super.mostrarInfo();
         System.out.println("Cajero que trabaja en la caja " + caja);

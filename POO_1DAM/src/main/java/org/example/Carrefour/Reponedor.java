@@ -24,6 +24,12 @@ public class Reponedor extends Persona{
 
     @Override
 
+    public void trabajar() {
+        System.out.println("Recogiendo cajas...");
+    }
+
+    @Override
+
     public void mostrarInfo() {
         super.mostrarInfo();
         System.out.println("Reponedor que trabaja en el pasillo " + pasillo);

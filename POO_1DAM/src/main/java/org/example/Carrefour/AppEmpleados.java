@@ -40,6 +40,12 @@ public class AppEmpleados {
 
         fichar(manuel);
         fichar(carlos);
+        System.out.println();
+
+        jorge.trabajar();
+        raul.trabajar();
+        carlos.trabajar();
+
     }
 
     public static void fichar(Persona persona) {
