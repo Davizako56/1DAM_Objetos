@@ -31,16 +31,14 @@ public class Entrenador extends MutxamelFC implements AccionesDeportivas{
 
         String formacion;
 
-        do{
-            System.out.println("Introduce la formación:");
-            formacion = entrada.next();
+        System.out.println("Introduce la formación:");
+        formacion = entrada.next();
 
-            if(formacion.matches(formato)) {
-                this.formacionPreferida = formacionPreferida;
-            }else{
-                System.out.println("Error: El formato no encaja, vuele a intentarlo.");
-            }
-        }while(!formacion.matches(formato));
+        if(formacion.matches(formato)) {
+            this.formacionPreferida = formacionPreferida;
+        }else{
+           throw new FormatoIncorrectoException("El formato no es correcto");
+        }
     }
 
     public void planificarEntrenamiento(){

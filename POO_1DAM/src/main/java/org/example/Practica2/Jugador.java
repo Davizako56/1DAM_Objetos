@@ -1,17 +1,24 @@
 package org.example.Practica2;
+import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Jugador extends MutxamelFC implements AccionesDeportivas{
+    static Scanner entrada = new Scanner(System.in);
 
     private Equipos categoria;
     private int dorsal;
     private Posiciones posicion;
+    ArrayList<Jugador> listaJugadores;
 
-    public Jugador(String nombre, int edad, Equipos categoria, int dorsal, Posiciones posicion){
+
+    public Jugador(String nombre, int edad, Equipos categoria, Posiciones posicion){
 
         super(nombre, edad);
         this.categoria = categoria;
-        this.dorsal = dorsal;
+        setDorsal();
         this.posicion = posicion;
+        listaJugadores = new ArrayList<>();
+        listaJugadores.add(this);
     }
 
     public Equipos getCategoria() {
@@ -26,8 +33,15 @@ public class Jugador extends MutxamelFC implements AccionesDeportivas{
         return dorsal;
     }
 
-    public void setDorsal(int dorsal) {
-        this.dorsal = dorsal;
+    public void setDorsal() {
+        System.out.println("Introduce el dorsal:");
+        int dorsal = entrada.nextInt();
+
+        if(validarDorsal(dorsal)) {
+            this.dorsal = dorsal;
+        }else{
+            throw new DorsalRepetidoException("No pueden haber más de un jugador con el mismo dorsal en el mismo equipo");
+        }
     }
 
     public Posiciones getPosicion() {
@@ -36,6 +50,14 @@ public class Jugador extends MutxamelFC implements AccionesDeportivas{
 
     public void setPosicion(Posiciones posicion) {
         this.posicion = posicion;
+    }
+
+    public ArrayList<Jugador> getListaJugadores() {
+        return listaJugadores;
+    }
+
+    public void setListaJugadores(ArrayList<Jugador> listaJugadores) {
+        this.listaJugadores = listaJugadores;
     }
 
     public void calentar() {
@@ -48,6 +70,18 @@ public class Jugador extends MutxamelFC implements AccionesDeportivas{
 
     public void marcarGol() {
         System.out.println(getNombre() + " marca un golazo.");
+    }
+
+    public boolean validarDorsal(int dorsal) {
+
+        for(Jugador jugador : listaJugadores) {
+
+            if(dorsal == jugador.getDorsal() && getCategoria() == jugador.getCategoria()) {
+                return false;
+            }
+        }
+
+        return true;
     }
 
     @Override
