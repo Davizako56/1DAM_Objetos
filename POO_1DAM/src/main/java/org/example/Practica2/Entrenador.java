@@ -1,4 +1,4 @@
-package org.example.Práctica2;
+package org.example.Practica2;
 import java.util.Scanner;
 
 public class Entrenador extends MutxamelFC implements AccionesDeportivas{

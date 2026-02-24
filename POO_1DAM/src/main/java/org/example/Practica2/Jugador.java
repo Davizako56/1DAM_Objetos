@@ -1,4 +1,4 @@
-package org.example.Práctica2;
+package org.example.Practica2;
 
 public class Jugador extends MutxamelFC implements AccionesDeportivas{
 
