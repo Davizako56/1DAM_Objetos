@@ -4,7 +4,7 @@ import java.util.Scanner;
 public class Entrenador extends MutxamelFC implements AccionesDeportivas{
     static Scanner entrada = new Scanner(System.in);
 
-    private final String formato = "\\d{1,2}-\\d{1,2}-\\d{1,2}";
+    private final String formato = "\\d-\\d-\\d";
     private Equipos equipo;
     private String formacionPreferida;
 

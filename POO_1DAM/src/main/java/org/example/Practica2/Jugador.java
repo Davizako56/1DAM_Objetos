@@ -8,7 +8,7 @@ public class Jugador extends MutxamelFC implements AccionesDeportivas{
     private Equipos categoria;
     private int dorsal;
     private Posiciones posicion;
-    ArrayList<Jugador> listaJugadores;
+    private static ArrayList<Jugador> listaJugadores = new ArrayList<>();
 
 
     public Jugador(String nombre, int edad, Equipos categoria, Posiciones posicion){
@@ -17,7 +17,6 @@ public class Jugador extends MutxamelFC implements AccionesDeportivas{
         this.categoria = categoria;
         setDorsal();
         this.posicion = posicion;
-        listaJugadores = new ArrayList<>();
         listaJugadores.add(this);
     }
 
@@ -74,10 +73,14 @@ public class Jugador extends MutxamelFC implements AccionesDeportivas{
 
     public boolean validarDorsal(int dorsal) {
 
-        for(Jugador jugador : listaJugadores) {
+        if (listaJugadores == null) {
+            return true;
+        }else{
+            for(Jugador jugador : listaJugadores) {
 
-            if(dorsal == jugador.getDorsal() && getCategoria() == jugador.getCategoria()) {
-                return false;
+                if(dorsal == jugador.getDorsal() && getCategoria() == jugador.getCategoria()) {
+                    return false;
+                }
             }
         }
 
