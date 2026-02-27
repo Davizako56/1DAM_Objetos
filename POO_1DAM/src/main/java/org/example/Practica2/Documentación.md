@@ -8,7 +8,7 @@
 
 Esta práctica se trata de crear una aplicación para poder gestionar equipos de futbol incluyendo agentes externos como acompañantes, aparte de trabajadores internos como los propios jugadores y entrenadores o masajistas.
 
-###Código
+### Código
 
 - Acciones deportivas:
 
