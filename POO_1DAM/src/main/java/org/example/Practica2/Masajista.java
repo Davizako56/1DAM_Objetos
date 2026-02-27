@@ -1,7 +1,15 @@
 package org.example.Practica2;
 
+/**
+ * Clase que le da diferentes funcionalidades a objetos de este tipo.
+ * @author David Giner
+ */
 public class Masajista extends MutxamelFC{
 
+    /**
+     * @param titulacion Es la variable que indica la titulación de masajista que tiene el masajista.
+     * @param añosExperiencia Es la variable que indica los años de experiencia que tiene el masajista.
+     */
     private String titulacion;
     private int añosExperiencia;
 
@@ -28,6 +36,10 @@ public class Masajista extends MutxamelFC{
         this.añosExperiencia = añosExperiencia;
     }
 
+    /**
+     * Método para dar masajes a jugadores.
+     * @param jugador Este parámetro guarda el jugador al cual se le va a dar el masaje.
+     */
     public void darMasaje(Jugador jugador) {
         System.out.println(getNombre() + " le da un masaje a " + jugador.getNombre() + ".");
     }

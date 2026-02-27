@@ -2,6 +2,10 @@ package org.example.Practica2;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/**
+ * Esta clase funciona como la aplicación de amntenimiento
+ * @author David Giner
+ */
 public class AppMantenimiento {
     static Scanner entrada = new Scanner(System.in);
     static ArrayList<Entrenador> listasEntrenadores = new ArrayList<>();
@@ -11,6 +15,9 @@ public class AppMantenimiento {
         menu();
     }
 
+    /**
+     * Este método sirve para imprimir un menú funcional que indica las diferentes opciones que tiene el usuario.
+     */
     public static void menu() {
 
         System.out.println("=== App de mantenimiento del MUTXAMEL FC ===");
@@ -28,6 +35,10 @@ public class AppMantenimiento {
         System.out.println("=============================================");
         System.out.println();
         System.out.println("Selecciona una opción:");
+
+        /**
+         * @param opcion Es la variable que indicara que opción del menú se ha escogido.
+         */
         char opcion = entrada.next().toUpperCase().charAt(0);
         opciones(opcion);
 
@@ -35,6 +46,10 @@ public class AppMantenimiento {
 
     }
 
+    /**
+     * Método que contiene las diferentes opciones funcionales del menú
+     * @param opcion Parámetro que obtiene la opcion del menú a ejecutar dentro del método.
+     */
     public static void opciones(char opcion) {
 
         switch(opcion) {
@@ -55,8 +70,15 @@ public class AppMantenimiento {
         }
     }
 
+    /**
+     * Método específicamente hecho para el mantenimiento de los entrenadores.
+     */
     public static void mantenimientoEntrenador() {
 
+        /**
+         * @param nombre Esta variable se queda con el nombre del entrenador que queramos modificar o añadir.
+         * @param edad Su propósito es el mismo que el de la variable nombre solo que esta guarda la edad.
+         */
         String nombre;
         int edad;
 
@@ -124,6 +146,9 @@ public class AppMantenimiento {
         }
     }
 
+    /**
+     * Método para poder consultar los diferentes equipos disponibles.
+     */
     public static void consultarEquipos() {
 
         System.out.println("Equipos disponibles:");

@@ -1,5 +1,9 @@
 package org.example.Practica2;
 
+/**
+ * Clase que tiene el rol de aplicación principal
+ * @autho David Giner
+ */
 public class AppMutxamelFC {
 
     public static void main(String[] args) {

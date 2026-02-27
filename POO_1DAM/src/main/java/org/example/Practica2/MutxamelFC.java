@@ -1,7 +1,15 @@
 package org.example.Practica2;
 
+/**
+ * Esta clase abstracta actua como una super clase para varias clases del paquete
+ * @author David Giner
+ */
 public abstract class MutxamelFC implements FuncionesIntegrantes{
 
+    /**
+     * @param nombre Es una variable que guarda el nombre del objeto.
+     * @param edad Es una variable que guarda la edad del objeto.
+     */
     private String nombre;
     private int edad;
 

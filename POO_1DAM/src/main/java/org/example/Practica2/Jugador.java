@@ -2,9 +2,19 @@ package org.example.Practica2;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/**
+ * Clase que guarda todas las funcionalidades que puede utilizar un objeto de este tipo.
+ * @author David Giner
+ */
 public class Jugador extends MutxamelFC implements AccionesDeportivas{
     static Scanner entrada = new Scanner(System.in);
 
+    /**
+     * @param categoria Esta variable guarda el equipo en el que pertenece el jugador.
+     * @param dorsal Esta variable guarda el dorsal que tiene.
+     * @param posicion Esta variable guarda la posición del jugador en los partidos.
+     * @param listaJugadores Esta variable es una lista que guarda la cantidad de jugadores creados en la aplicación.
+     */
     private Equipos categoria;
     private int dorsal;
     private Posiciones posicion;
@@ -32,6 +42,9 @@ public class Jugador extends MutxamelFC implements AccionesDeportivas{
         return dorsal;
     }
 
+    /**
+     * Este método sirve para introducir el dorsal del jugador
+     */
     public void setDorsal() {
         System.out.println("Introduce el dorsal:");
         int dorsal = entrada.nextInt();
@@ -71,6 +84,12 @@ public class Jugador extends MutxamelFC implements AccionesDeportivas{
         System.out.println(getNombre() + " marca un golazo.");
     }
 
+
+    /**
+     * Este método sirve para asegurarse de que el dorsal es válido, es decir, que no esté repetido dentro del mismo equipo.
+     * @param dorsal Es el parámetro que recibe el número del dorsal a comprobar si es válido.
+     * @return El método devuelve true si el dorsal es válido y false si no lo es.
+     */
     public boolean validarDorsal(int dorsal) {
 
         if (listaJugadores == null) {

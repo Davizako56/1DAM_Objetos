@@ -1,7 +1,15 @@
 package org.example.Practica2;
 
+/**
+ * Clase para crear objetos de tipo acompañante
+ * @Author David Giner
+ */
 public class Acompañante extends MutxamelFC{
 
+    /**
+     * @param integrante Es una variable de tipo jugador el cual guarda al jugador que acompaña.
+     * @param parentesco Es una variable que determina el parentesco entre el acompañante y el jugador que acompaña.
+     */
     private Jugador integrante;
     private String parentesco;
 
@@ -28,6 +36,9 @@ public class Acompañante extends MutxamelFC{
         this.parentesco = parentesco;
     }
 
+    /**
+     * Este método imprime un mensaje que indica que el acompañante esta animando al equipo
+     */
     public void animarEquipo() {
         System.out.println(getNombre() + " anima al equipo.");
     }
