@@ -7,7 +7,7 @@ public class Bateria {
 
     public static void main(String[] args) {
 
-        ejercicio2();
+        ejercicio3();
     }
 
     public static void ejercicio1() {
@@ -50,5 +50,41 @@ public class Bateria {
             System.out.print(numeros.pop() + ", ");
         }
 
+    }
+
+    public static void ejercicio3() {
+
+        String expresion = "((2+3)*(5-1)(";
+
+        if(esBalanceado(expresion)) {
+            System.out.println("Correcto.");
+        }else{
+            System.out.println("Incorrecto.");
+        }
+    }
+
+    public static boolean esBalanceado(String cadena) {
+
+        Stack<Character> pila = new Stack<>();
+
+        for(int i = 0; i < cadena.length(); i++) {
+
+            if(cadena.charAt(i) == '(') {
+                pila.push(cadena.charAt(i));
+            }else if(cadena.charAt(i) == ')') {
+
+                if(pila.contains('(')) {
+                    pila.pop();
+                }else{
+                    return false;
+                }
+            }
+        }
+
+        if(pila.isEmpty()) {
+            return true;
+        }else{
+            return false;
+        }
     }
 }
