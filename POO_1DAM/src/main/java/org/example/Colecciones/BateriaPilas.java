@@ -2,7 +2,7 @@ package org.example.Colecciones;
 import java.util.Scanner;
 import java.util.Stack;
 
-public class Bateria {
+public class BateriaPilas {
     static Scanner entrada = new Scanner(System.in);
 
     public static void main(String[] args) {
