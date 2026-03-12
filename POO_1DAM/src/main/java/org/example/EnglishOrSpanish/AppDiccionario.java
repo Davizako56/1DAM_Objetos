@@ -72,7 +72,7 @@ public class AppDiccionario {
                 preguntas++;
                 aciertos++;
             }else{
-                System.out.println("¡ERROR!");
+                System.out.println("¡NO! La respuesta correcta es " + ingles[num]);
                 preguntas++;
                 errores++;
             }
