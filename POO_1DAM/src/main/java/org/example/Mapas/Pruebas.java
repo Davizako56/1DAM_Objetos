@@ -2,7 +2,7 @@ package org.example.Mapas;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Preubas {
+public class Pruebas {
 
     public static void main(String[] args) {
 

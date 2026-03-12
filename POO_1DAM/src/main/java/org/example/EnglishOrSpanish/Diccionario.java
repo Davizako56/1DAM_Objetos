@@ -55,7 +55,7 @@ public class Diccionario {
         System.out.println("Palabra aleatoria: " + claves[num]);
     }
 
-    public void primeraPalabraTraduccion(String palabra) {
+    public void primeraLetraTraduccion(String palabra) {
 
         for(Map.Entry<String,String> mapa : mapita.entrySet()) {
 
@@ -63,7 +63,7 @@ public class Diccionario {
 
                 String[] ingles = mapa.getValue().split("");
 
-                System.out.println("Primera letra de la palabra en ingles: " + ingles[0].toUpperCase() + "...");
+                System.out.println(mapa.getKey() + ": " + ingles[0].toUpperCase() + "...");
                 return;
             }
         }
