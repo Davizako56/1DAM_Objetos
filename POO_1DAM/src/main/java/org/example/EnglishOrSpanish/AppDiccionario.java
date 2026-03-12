@@ -8,6 +8,11 @@ public class AppDiccionario {
         Random random = new Random();
         Scanner entrada = new Scanner(System.in);
 
+        int aciertos = 0;
+        int errores = 0;
+        int preguntas = 0;
+        String respuesta;
+
         Diccionario diccionario = new Diccionario();
 
         String[] español = {
@@ -42,11 +47,6 @@ public class AppDiccionario {
 
         System.out.println("*** ADIVINA LA PALABRA ***");
 
-        int aciertos = 0;
-        int errores = 0;
-        int preguntas = 0;
-        String respuesta;
-
         do {
 
             int num = random.nextInt(50);
@@ -54,20 +54,26 @@ public class AppDiccionario {
             diccionario.primeraLetraTraduccion(español[num]);
             System.out.println("Indique la respuesta correcta:");
             respuesta = entrada.next();
-            preguntas++;
 
             if(respuesta.equalsIgnoreCase("fin")) {
                 System.out.println("FIN DEL PROGRAMA");
                 System.out.println("Total preguntas: " + preguntas);
                 System.out.println("Total aciertos: " + aciertos);
                 System.out.println("Total errores: " + errores);
-                int porcentaje = (aciertos * 100) / preguntas;
-                System.out.println("Aciertos: " + porcentaje + "%");
+
+                try {
+                    int porcentaje = (aciertos * 100) / preguntas;
+                    System.out.println("Aciertos: " + porcentaje + "%");
+                }catch(ArithmeticException e) {
+                    System.out.println("Aciertos: 0%");
+                }
             }else if(respuesta.equalsIgnoreCase(ingles[num])) {
                 System.out.println("¡CORRECTO!");
+                preguntas++;
                 aciertos++;
             }else{
                 System.out.println("¡ERROR!");
+                preguntas++;
                 errores++;
             }
 
