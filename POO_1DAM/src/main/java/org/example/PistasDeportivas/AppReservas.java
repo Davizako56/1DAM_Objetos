@@ -37,7 +37,7 @@ public class AppReservas {
     }
 
     public static void crearReserva(Usuario usuario, Pista pista) {
-        
+
         Reserva reserva = new Reserva(usuario, pista);
 
         HashSet<Reserva> listaReserva = listaReserva(usuario);
