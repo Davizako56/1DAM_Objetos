@@ -34,28 +34,31 @@ public class Diccionario {
         mapita.put(español, ingles);
     }
 
-    public void traduce(String palabra) {
+    public String traduce(String palabra) {
 
         for(Map.Entry<String,String> mapa : mapita.entrySet()) {
 
             if(mapa.getKey().equalsIgnoreCase(palabra)) {
                 System.out.println("Palabra en inglés: " + mapa.getValue());
-                return;
+                return mapa.getValue();
             }
         }
 
         System.out.println("Esta palabra no se encuentra en el diccionario.");
+        return null;
     }
 
-    public void palabraAleatoria() {
+    public String palabraAleatoria() {
 
         String[] claves = mapita.keySet().toArray(new String[0]);
         int num = random.nextInt(claves.length);
 
         System.out.println("Palabra aleatoria: " + claves[num]);
+
+        return claves[num];
     }
 
-    public void primeraLetraTraduccion(String palabra) {
+    public String primeraLetraTraduccion(String palabra) {
 
         for(Map.Entry<String,String> mapa : mapita.entrySet()) {
 
@@ -64,10 +67,11 @@ public class Diccionario {
                 String[] ingles = mapa.getValue().split("");
 
                 System.out.println(mapa.getKey() + ": " + ingles[0].toUpperCase() + "...");
-                return;
+                return ingles[0].toUpperCase();
             }
         }
 
         System.out.println("Esta palabra no se encuentra en el diccionario.");
+        return null;
     }
 }
